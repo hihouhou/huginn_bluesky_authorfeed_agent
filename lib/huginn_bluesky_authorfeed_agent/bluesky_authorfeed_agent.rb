@@ -187,11 +187,11 @@ module Agents
           if !memory['last_status'].nil? and memory['last_status']['feed'].present?
             last_status = memory['last_status']
             if interpolated['debug'] == 'true'
-              log "last_status"
-              log last_status
+              log "feed"
+              log feed
             end
             last_status["feed"].each do |feedbis|
-              if feed == feedbis
+              if feed == feedbis or feed['post']['uri'] == feedbis['post']['uri']
                 found = true
                 if interpolated['debug'] == 'true'
                   log "found is #{found}"
